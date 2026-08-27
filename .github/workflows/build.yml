@@ -81,6 +81,9 @@ jobs:
           if (-not (Test-Path -LiteralPath $notesFile)) {
             throw "找不到发行说明：$notesFile"
           }
+          if (-not (Test-Path -LiteralPath ".\update.md")) {
+            throw "找不到软件内更新说明：.\update.md"
+          }
           gh release create $env:GITHUB_REF_NAME `
             .\dist\PictureTransformer-Setup.exe `
             .\dist\PictureTransformer.msi `
