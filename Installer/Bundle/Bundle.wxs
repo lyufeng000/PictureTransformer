@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs"
+     xmlns:bal="http://wixtoolset.org/schemas/v4/wxs/bal">
+  <Bundle
+      Name="PictureTransformer"
+      Manufacturer="PictureTransformer"
+      Version="1.0.0"
+      UpgradeCode="14A321DB-BE35-445C-8CC3-F5851515013C">
+
+    <BootstrapperApplication>
+      <bal:WixStandardBootstrapperApplication
+          Theme="hyperlinkLicense"
+          LicenseUrl=""
+          ShowVersion="yes" />
+    </BootstrapperApplication>
+
+    <Chain>
+      <MsiPackage
+          Id="PictureTransformerPackage"
+          SourceFile="$(var.PictureTransformer.Package.TargetPath)"
+          Vital="yes"
+          Visible="no" />
+    </Chain>
+  </Bundle>
+</Wix>

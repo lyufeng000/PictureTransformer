@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PictureTransformer", "PictureTransformer\PictureTransformer.csproj", "{4C81E673-7A13-4BBF-BE4C-D599C9CB3028}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PictureTransformer.Core", "PictureTransformer.Core\PictureTransformer.Core.csproj", "{B4711731-DBB0-46FD-BB91-243DC30E8B0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PictureTransformer.Cli", "PictureTransformer.Cli\PictureTransformer.Cli.csproj", "{F8B41118-FD08-40BB-B4F9-E96908C464E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C81E673-7A13-4BBF-BE4C-D599C9CB3028}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C81E673-7A13-4BBF-BE4C-D599C9CB3028}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C81E673-7A13-4BBF-BE4C-D599C9CB3028}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C81E673-7A13-4BBF-BE4C-D599C9CB3028}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4711731-DBB0-46FD-BB91-243DC30E8B0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4711731-DBB0-46FD-BB91-243DC30E8B0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4711731-DBB0-46FD-BB91-243DC30E8B0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4711731-DBB0-46FD-BB91-243DC30E8B0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8B41118-FD08-40BB-B4F9-E96908C464E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8B41118-FD08-40BB-B4F9-E96908C464E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8B41118-FD08-40BB-B4F9-E96908C464E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8B41118-FD08-40BB-B4F9-E96908C464E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

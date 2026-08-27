@@ -1,0 +1,26 @@
+# IDE
+.idea/
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# .NET build output
+**/bin/
+**/obj/
+artifacts/
+
+# Local generated output
+temp/
+dist/
+
+# Installer and signing artifacts
+*.wixpdb
+*.cer
+*.pfx
+*.p12
+
+# OS files
+.DS_Store
+Thumbs.db

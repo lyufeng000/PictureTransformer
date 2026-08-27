@@ -1,0 +1,12 @@
+<Project Sdk="WixToolset.Sdk/5.0.2">
+  <PropertyGroup>
+    <OutputType>Bundle</OutputType>
+    <OutputName>PictureTransformer-Setup</OutputName>
+    <Platform>x64</Platform>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Package\PictureTransformer.Package.wixproj" />
+    <PackageReference Include="WixToolset.BootstrapperApplications.wixext" Version="5.0.2" />
+  </ItemGroup>
+</Project>

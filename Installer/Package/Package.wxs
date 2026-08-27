@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Package
+      Name="PictureTransformer"
+      Manufacturer="PictureTransformer"
+      Version="1.0.0"
+      UpgradeCode="AC370DB0-50B7-4729-BDAD-108301E523BF"
+      Scope="perUser"
+      InstallerVersion="500"
+      Compressed="yes">
+
+    <SummaryInformation Description="PictureTransformer 图片格式转换工具" />
+    <MajorUpgrade DowngradeErrorMessage="已安装更新版本的 PictureTransformer。" />
+    <MediaTemplate EmbedCab="yes" CompressionLevel="high" />
+
+    <StandardDirectory Id="LocalAppDataFolder">
+      <Directory Id="LocalProgramsFolder" Name="Programs">
+        <Directory Id="INSTALLFOLDER" Name="PictureTransformer" />
+      </Directory>
+    </StandardDirectory>
+
+    <StandardDirectory Id="ProgramMenuFolder">
+      <Directory Id="ApplicationProgramsFolder" Name="PictureTransformer" />
+    </StandardDirectory>
+
+    <StandardDirectory Id="DesktopFolder">
+      <Component Id="DesktopShortcutComponent" Guid="01B4F73D-93F3-493F-B0DD-8F8379CD633A">
+        <Shortcut
+            Id="DesktopShortcut"
+            Name="PictureTransformer"
+            Description="图片格式转换工具"
+            Target="[INSTALLFOLDER]app\PictureTransformer.exe"
+            WorkingDirectory="INSTALLFOLDER" />
+        <RegistryValue
+            Root="HKCU"
+            Key="Software\PictureTransformer"
+            Name="DesktopShortcut"
+            Type="integer"
+            Value="1"
+            KeyPath="yes" />
+      </Component>
+    </StandardDirectory>
+
+    <Feature Id="MainFeature" Title="PictureTransformer" Level="1">
+      <Files Include="$(var.PublishDir)\**" Directory="INSTALLFOLDER">
+        <Exclude Files="$(var.PublishDir)\**\*.pdb" />
+      </Files>
+      <ComponentRef Id="StartMenuShortcutComponent" />
+      <ComponentRef Id="DesktopShortcutComponent" />
+      <ComponentRef Id="CliPathComponent" />
+    </Feature>
+
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="StartMenuShortcutComponent" Guid="11872109-2B93-46DF-8458-31B130543E34">
+        <Shortcut
+            Id="StartMenuShortcut"
+            Name="PictureTransformer"
+            Description="图片格式转换工具"
+            Target="[INSTALLFOLDER]app\PictureTransformer.exe"
+            WorkingDirectory="INSTALLFOLDER" />
+        <RemoveFolder Id="RemoveApplicationProgramsFolder" On="uninstall" />
+        <RegistryValue
+            Root="HKCU"
+            Key="Software\PictureTransformer"
+            Name="StartMenuShortcut"
+            Type="integer"
+            Value="1"
+            KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CliPathComponent" Guid="9FBAA6D7-E91E-4753-9555-19DC6378596E">
+        <Environment
+            Id="AddCliToUserPath"
+            Name="PATH"
+            Value="[INSTALLFOLDER]"
+            Part="last"
+            Action="set"
+            Permanent="no"
+            System="no" />
+        <RegistryValue
+            Root="HKCU"
+            Key="Software\PictureTransformer"
+            Name="InstallPath"
+            Type="string"
+            Value="[INSTALLFOLDER]"
+            KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+  </Package>
+</Wix>
