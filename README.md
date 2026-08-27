@@ -51,3 +51,7 @@ pictureTransformer -s "D:\Images" -d "D:\Output" -f webp -c 30
 ## 隐私
 
 PictureTransformer 完全离线运行，不收集或上传用户数据。
+
+## 许可证
+
+本项目使用 [MIT License](LICENSE) 开源。
