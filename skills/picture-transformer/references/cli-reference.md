@@ -1,4 +1,4 @@
-# PictureTransformer 1.0.4 CLI 参考
+# PictureTransformer 1.0.5 CLI 参考
 
 ## 调用方式
 

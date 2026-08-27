@@ -3,7 +3,7 @@
   <Package
       Name="PictureTransformer"
       Manufacturer="PictureTransformer"
-      Version="1.0.4"
+      Version="1.0.5"
       UpgradeCode="AC370DB0-50B7-4729-BDAD-108301E523BF"
       Scope="perMachine"
       InstallerVersion="500"
