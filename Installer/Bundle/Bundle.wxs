@@ -4,14 +4,21 @@
   <Bundle
       Name="PictureTransformer"
       Manufacturer="PictureTransformer"
-      Version="1.0.0"
+      Version="1.0.1"
       UpgradeCode="14A321DB-BE35-445C-8CC3-F5851515013C">
+
+    <Variable
+        Name="InstallFolder"
+        Type="formatted"
+        Value="[ProgramFiles64Folder]PictureTransformer"
+        bal:Overridable="yes" />
 
     <BootstrapperApplication>
       <bal:WixStandardBootstrapperApplication
           Theme="hyperlinkLicense"
           LicenseUrl=""
-          ShowVersion="yes" />
+          ShowVersion="yes"
+          SuppressOptionsUI="no" />
     </BootstrapperApplication>
 
     <Chain>
@@ -19,7 +26,9 @@
           Id="PictureTransformerPackage"
           SourceFile="$(var.PictureTransformer.Package.TargetPath)"
           Vital="yes"
-          Visible="no" />
+          Visible="no">
+        <MsiProperty Name="INSTALLFOLDER" Value="[InstallFolder]" />
+      </MsiPackage>
     </Chain>
   </Bundle>
 </Wix>
