@@ -1,0 +1,4 @@
+interface:
+  display_name: "PictureTransformer 图片转换"
+  short_description: "使用本地 PictureTransformer 批量转换图片格式"
+  default_prompt: "使用 $picture-transformer 将这些本地图片转换为 PNG，并把结果路径告诉我。"

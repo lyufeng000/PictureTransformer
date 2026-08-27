@@ -11,6 +11,7 @@ PictureTransformer 是一个基于 .NET 10 和 WPF 开发的离线图片格式�
 - 默认输出到源文件旁边，也可以指定统一输出目录。
 - 文件重名时自动添加后缀，不覆盖已有文件。
 - 提供 `pictureTransformer` 命令行程序。
+- 内置可供 Codex 使用的 `$picture-transformer` 图片转换 Skill。
 - 使用 WiX 构建 MSI 和 Setup 安装程序。
 
 ## 构建
@@ -47,6 +48,12 @@ pictureTransformer -s <路径> [-s <路径> ...] [-d <目录>] [-f <格式>] [-c
 pictureTransformer -s "D:\Images\photo.heic" -f jpg
 pictureTransformer -s "D:\Images" -d "D:\Output" -f webp -c 30
 ```
+
+## Codex Skill
+
+仓库内置 [PictureTransformer Skill](skills/picture-transformer/SKILL.md)，用于让 Codex 调用本机安装的 `pictureTransformer` 完成单张、批量或文件夹图片转换。Skill 声明了全部 CLI 参数、输入/输出格式、压缩规则和输出命名行为，可通过 `$picture-transformer` 调用。
+
+将 `skills/picture-transformer` 文件夹复制到 Codex 的个人 Skills 目录后即可使用；Windows 默认目录为 `%USERPROFILE%\.codex\skills\picture-transformer`。
 
 ## 隐私
 

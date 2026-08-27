@@ -25,6 +25,6 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\build-setup.ps1
 
 ## 发布前注意
 
-当前版本号为 `1.0.1`。发布新版本时，需要同步修改 `Directory.Build.props`、`Package.wxs` 和 `Bundle.wxs` 中的版本号。
+当前版本号为 `1.0.3`。发布新版本时，需要同步修改 `Directory.Build.props`、`Package.wxs` 和 `Bundle.wxs` 中的版本号。
 
 当前产物没有数字签名，Windows 可能显示“未知发布者”。正式公开分发前建议为 MSI、Burn 引擎和最终 Setup 添加代码签名。

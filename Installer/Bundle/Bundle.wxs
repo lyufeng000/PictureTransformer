@@ -4,7 +4,7 @@
   <Bundle
       Name="PictureTransformer"
       Manufacturer="PictureTransformer"
-      Version="1.0.1"
+      Version="1.0.3"
       UpgradeCode="14A321DB-BE35-445C-8CC3-F5851515013C">
 
     <Variable

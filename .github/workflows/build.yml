@@ -77,10 +77,14 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          $notesFile = ".\.github\release-notes\$env:GITHUB_REF_NAME.md"
+          if (-not (Test-Path -LiteralPath $notesFile)) {
+            throw "找不到发行说明：$notesFile"
+          }
           gh release create $env:GITHUB_REF_NAME `
             .\dist\PictureTransformer-Setup.exe `
             .\dist\PictureTransformer.msi `
             --verify-tag `
             --latest `
             --title "PictureTransformer $env:GITHUB_REF_NAME" `
-            --notes-file .\.github\release-notes\v1.0.1.md
+            --notes-file $notesFile
