@@ -55,3 +55,12 @@ PictureTransformer 完全离线运行，不收集或上传用户数据。
 ## 许可证
 
 本项目使用 [MIT License](LICENSE) 开源。
+
+## Code signing policy
+
+Free code signing provided by [SignPath.io](https://signpath.io/), certificate by [SignPath Foundation](https://signpath.org/).
+
+- 正式发布文件必须由 GitHub Actions 从本仓库的公开源代码构建。
+- 每次正式签名请求都必须由项目维护者人工批准。
+- 签名服务仅用于签署由本项目源代码和构建脚本生成的发布文件。
+- 不使用本项目的签名权限签署其他项目或第三方二进制文件。
