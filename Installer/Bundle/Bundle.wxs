@@ -9,9 +9,9 @@
       UpgradeCode="14A321DB-BE35-445C-8CC3-F5851515013C">
 
     <Variable
-        Name="InstallParentFolder"
+        Name="InstallFolder"
         Type="formatted"
-        Value="[ProgramFiles64Folder]"
+        Value="[ProgramFiles64Folder]PictureTransformer"
         bal:Overridable="yes" />
     <Variable
         Name="AddToPath"
@@ -35,7 +35,7 @@
           SourceFile="$(var.PictureTransformer.Package.TargetPath)"
           Vital="yes"
           Visible="no">
-        <MsiProperty Name="INSTALLFOLDER" Value="[InstallParentFolder]\PictureTransformer" />
+        <MsiProperty Name="INSTALLFOLDER" Value="[InstallFolder]" />
         <MsiProperty Name="ADDTOPATH" Value="[AddToPath]" />
       </MsiPackage>
     </Chain>

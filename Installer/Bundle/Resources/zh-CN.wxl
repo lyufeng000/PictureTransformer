@@ -5,7 +5,7 @@
   <String Id="UpdateButton" Value="更新到版本 [WixStdBAUpdateAvailable]" />
   <String Id="InstallHeader" Value="欢迎" />
   <String Id="InstallMessage" Value="安装程序将在计算机上安装 [WixBundleName]。点击“安装”继续，或点击“取消”退出。" />
-  <String Id="InstallMessageOptions" Value="请选择安装位置。安装程序会在所选位置创建 PictureTransformer 文件夹。点击“安装”继续，或点击“取消”退出。" />
+  <String Id="InstallMessageOptions" Value="请选择安装位置。可在下方直接修改完整安装路径。点击“安装”继续，或点击“取消”退出。" />
   <String Id="InstallVersion" Value="版本 [WixBundleVersion]" />
   <String Id="ConfirmCancelMessage" Value="确定要取消吗？" />
   <String Id="ExecuteUpgradeRelatedBundleMessage" Value="以前的版本" />
@@ -14,12 +14,12 @@
   <String Id="HelpCloseButton" Value="关闭" />
   <String Id="InstallLicenseLinkText" Value="[WixBundleName] &lt;a href=&quot;#&quot;&gt;许可证条款&lt;/a&gt;。" />
   <String Id="InstallAcceptCheckbox" Value="我同意许可证条款和条件" />
-  <String Id="InstallLocationLabel" Value="安装位置（将创建 PictureTransformer 文件夹）：" />
+  <String Id="InstallLocationLabel" Value="安装目录：" />
   <String Id="InstallOptionsButton" Value="选择安装目录" />
   <String Id="InstallInstallButton" Value="安装" />
   <String Id="InstallCancelButton" Value="取消" />
   <String Id="OptionsHeader" Value="选择安装目录" />
-  <String Id="OptionsLocationLabel" Value="安装位置（将创建 PictureTransformer 文件夹）：" />
+  <String Id="OptionsLocationLabel" Value="安装目录：" />
   <String Id="OptionsBrowseButton" Value="浏览" />
   <String Id="AddToPathCheckbox" Value="将命令行工具加入系统 PATH（推荐）" />
   <String Id="OptionsOkButton" Value="确定" />
