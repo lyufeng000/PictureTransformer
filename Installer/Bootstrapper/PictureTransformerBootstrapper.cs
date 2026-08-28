@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Threading;
 using WixToolset.BootstrapperApplicationApi;
@@ -10,10 +11,12 @@ public sealed class PictureTransformerBootstrapper : BootstrapperApplication
 {
     private Dispatcher? dispatcher;
     private MainWindow? window;
+    private Window? hiddenEngineParent;
     private IBootstrapperCommand? command;
     private bool installed;
     private bool applying;
     private int result;
+    private IntPtr windowHandle;
     private LaunchAction plannedAction = LaunchAction.Unknown;
 
     protected override void OnCreate(CreateEventArgs args)
@@ -57,6 +60,17 @@ public sealed class PictureTransformerBootstrapper : BootstrapperApplication
                 dispatcher.BeginInvokeShutdown(DispatcherPriority.Normal);
             };
             window.Show();
+            windowHandle = new WindowInteropHelper(window).EnsureHandle();
+        }
+        else
+        {
+            hiddenEngineParent = new Window
+            {
+                ShowInTaskbar = false,
+                ShowActivated = false,
+                WindowStyle = WindowStyle.None
+            };
+            windowHandle = new WindowInteropHelper(hiddenEngineParent).EnsureHandle();
         }
 
         engine.Detect();
@@ -116,9 +130,17 @@ public sealed class PictureTransformerBootstrapper : BootstrapperApplication
             return;
         }
 
-        applying = true;
-        var handle = window is null ? IntPtr.Zero : new WindowInteropHelper(window).Handle;
-        engine.Apply(handle);
+        try
+        {
+            applying = true;
+            engine.Apply(windowHandle);
+        }
+        catch (Exception ex)
+        {
+            applying = false;
+            engine.Log(LogLevel.Error, $"Failed to start apply: {ex}");
+            Finish(ex.HResult, false, "无法开始安装操作。请查看安装日志后重试。");
+        }
     }
 
     private void OnApplyComplete(object? sender, ApplyCompleteEventArgs e)
