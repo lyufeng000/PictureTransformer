@@ -8,25 +8,15 @@
       IconSourceFile="..\..\png.ico"
       UpgradeCode="14A321DB-BE35-445C-8CC3-F5851515013C">
 
-    <Variable
-        Name="InstallFolder"
-        Type="formatted"
-        Value="[ProgramFiles64Folder]PictureTransformer"
-        bal:Overridable="yes" />
+    <Variable Name="InstallFolder" Type="string" Value="" bal:Overridable="yes" />
     <Variable
         Name="AddToPath"
         Type="numeric"
         Value="1"
         bal:Overridable="yes" />
 
-    <BootstrapperApplication>
-      <bal:WixStandardBootstrapperApplication
-          Theme="hyperlinkLicense"
-          ThemeFile="Resources\zh-CN-theme.xml"
-          LicenseUrl=""
-          LocalizationFile="Resources\zh-CN.wxl"
-          ShowVersion="yes"
-          SuppressOptionsUI="no" />
+    <BootstrapperApplication SourceFile="..\Bootstrapper\bin\Release\net10.0-windows\win-x64\publish\PictureTransformer.SetupUI.exe">
+      <PayloadGroupRef Id="PictureTransformer.SetupUI.Payloads" />
     </BootstrapperApplication>
 
     <Chain>

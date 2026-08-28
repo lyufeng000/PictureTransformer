@@ -17,7 +17,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\build-setup.ps1
 
 ## 安装行为
 
-- 默认安装到 `%ProgramFiles%\PictureTransformer`。Setup 输入框直接显示并编辑完整安装目录，浏览按钮选择的目录也会直接写入输入框。
+- 默认安装到 `%ProgramFiles%\PictureTransformer`。浏览按钮选择父文件夹后，输入框会立即补全 `PictureTransformer` 并显示实际使用的完整安装目录；也可以直接编辑完整路径。
 - 图形界面程序位于安装主目录，命令行程序及其依赖集中在 `bin` 子目录。
 - 安装前会询问是否将 `bin` 加入系统 PATH，默认勾选；取消勾选则不注册。
 - 按计算机安装，需要管理员权限。

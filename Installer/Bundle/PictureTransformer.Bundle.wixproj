@@ -3,10 +3,32 @@
     <OutputType>Bundle</OutputType>
     <OutputName>PictureTransformer-Setup</OutputName>
     <Platform>x64</Platform>
+    <HarvestDirectoryAdditionalOptions>-generate payloadgroup -sw5151</HarvestDirectoryAdditionalOptions>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Package\PictureTransformer.Package.wixproj" />
+    <ProjectReference Include="..\Bootstrapper\PictureTransformer.Bootstrapper.csproj" ReferenceOutputAssembly="false" />
     <PackageReference Include="WixToolset.BootstrapperApplications.wixext" Version="5.0.2" />
+    <PackageReference Include="WixToolset.Heat" Version="5.0.2" />
   </ItemGroup>
+
+  <ItemGroup>
+    <BindInputPaths Include="..\Bootstrapper\bin\Release\net10.0-windows\win-x64\publish" />
+    <HarvestDirectory Include="..\Bootstrapper\bin\Release\net10.0-windows\win-x64\publish">
+      <ComponentGroupName>PictureTransformer.SetupUI.Components</ComponentGroupName>
+      <DirectoryRefId>PictureTransformer.SetupUI.Payloads</DirectoryRefId>
+      <SuppressCom>true</SuppressCom>
+      <SuppressRegistry>true</SuppressRegistry>
+      <SuppressRootDirectory>true</SuppressRootDirectory>
+      <Transforms>ba.xslt</Transforms>
+    </HarvestDirectory>
+  </ItemGroup>
+
+  <Target Name="PublishBootstrapper" BeforeTargets="BeforeBuild">
+    <MSBuild
+        Projects="..\Bootstrapper\PictureTransformer.Bootstrapper.csproj"
+        Targets="Publish"
+        Properties="Configuration=$(Configuration);RuntimeIdentifier=win-x64" />
+  </Target>
 </Project>
