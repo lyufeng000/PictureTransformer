@@ -16,6 +16,7 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged
     private OutputFormatOption _selectedOutputFormat;
     private int _compression;
     private string? _outputDirectory;
+    private bool _overwriteExisting;
     private bool _isBusy;
 
     public MainWindowViewModel(IFileDialogService dialogs, IImageConversionService converter)
@@ -72,6 +73,12 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged
     public string QueueCountText => $"{Queue.Count} 个文件";
     public bool HasFiles => Queue.Count > 0;
     public string OutputDirectoryText => string.IsNullOrWhiteSpace(OutputDirectory) ? "与源文件相同目录" : OutputDirectory;
+
+    public bool OverwriteExisting
+    {
+        get => _overwriteExisting;
+        set => SetField(ref _overwriteExisting, value);
+    }
 
     public string? OutputDirectory
     {
@@ -141,7 +148,12 @@ public sealed class MainWindowViewModel : INotifyPropertyChanged
                 item.Error = null;
                 try
                 {
-                    ConversionResult result = await _converter.ConvertAsync(new ConversionOptions(item.Path, SelectedOutputFormat, Compression, OutputDirectory));
+                    ConversionResult result = await _converter.ConvertAsync(new ConversionOptions(
+                        item.Path,
+                        SelectedOutputFormat,
+                        Compression,
+                        OutputDirectory,
+                        Overwrite: OverwriteExisting));
                     item.OutputPath = result.OutputPath;
                     item.Status = "转换完成";
                     succeeded++;

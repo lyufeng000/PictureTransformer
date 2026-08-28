@@ -21,10 +21,12 @@ public sealed class ImageConversionService : IImageConversionService
     {
         cancellationToken.ThrowIfCancellationRequested();
 
-        string outputPath = OutputPathService.CreateAvailablePath(
+        string outputPath = OutputPathService.CreateOutputPath(
             options.SourcePath,
             options.OutputFormat.Extension,
-            options.DestinationDirectory);
+            options.DestinationDirectory,
+            options.OutputPath,
+            options.Overwrite);
         string tempPath = outputPath + $".{Guid.NewGuid():N}.tmp";
 
         try
@@ -69,7 +71,7 @@ public sealed class ImageConversionService : IImageConversionService
             }
 
             cancellationToken.ThrowIfCancellationRequested();
-            File.Move(tempPath, outputPath);
+            File.Move(tempPath, outputPath, options.Overwrite);
             return new ConversionResult(options.SourcePath, outputPath);
         }
         catch

@@ -184,6 +184,9 @@
                                 </Grid>
                             </Button>
                             <TextBlock Margin="2,8,0,0" Text="未选择时，每张图片输出到其源文件旁边" Foreground="#8B91A0" FontSize="10" />
+                            <CheckBox Margin="2,14,0,0" Content="覆盖同名输出文件" IsChecked="{Binding OverwriteExisting}"
+                                      IsEnabled="{Binding CanEditSettings}" Foreground="#4B5161" FontSize="11"
+                                      ToolTip="未勾选时自动在重名文件后添加编号" />
                         </StackPanel>
                         <Button Grid.Row="6" Style="{StaticResource PrimaryButtonStyle}" Command="{Binding ConvertCommand}" HorizontalContentAlignment="Center" Content="→  开始转换" />
                     </Grid>

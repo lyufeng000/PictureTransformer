@@ -87,6 +87,7 @@ jobs:
           gh release create $env:GITHUB_REF_NAME `
             .\dist\PictureTransformer-Setup.exe `
             .\dist\PictureTransformer.msi `
+            .\skills\picture-transformer.zip `
             --verify-tag `
             --latest `
             --title "PictureTransformer $env:GITHUB_REF_NAME" `

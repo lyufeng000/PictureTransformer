@@ -40,7 +40,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\build-setup.ps1
 ## 命令行
 
 ```text
-pictureTransformer -s <路径> [-s <路径> ...] [-d <目录>] [-f <格式>] [-c <0-60>]
+pictureTransformer <路径> [<路径> ...] [-d <目录>] [-o <文件>] [-f <格式>] [-c <0-60>] [--overwrite]
 ```
 
 例如：
@@ -48,6 +48,7 @@ pictureTransformer -s <路径> [-s <路径> ...] [-d <目录>] [-f <格式>] [-c
 ```powershell
 pictureTransformer -s "D:\Images\photo.heic" -f jpg
 pictureTransformer -s "D:\Images" -d "D:\Output" -f webp -c 30
+pictureTransformer "D:\Images\photo.heic" -o "D:\Output\photo.png" --overwrite
 ```
 
 ## Codex Skill
