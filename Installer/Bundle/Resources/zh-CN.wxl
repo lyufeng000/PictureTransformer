@@ -5,7 +5,7 @@
   <String Id="UpdateButton" Value="更新到版本 [WixStdBAUpdateAvailable]" />
   <String Id="InstallHeader" Value="欢迎" />
   <String Id="InstallMessage" Value="安装程序将在计算机上安装 [WixBundleName]。点击“安装”继续，或点击“取消”退出。" />
-  <String Id="InstallMessageOptions" Value="安装程序将在计算机上安装 [WixBundleName]。点击“选择安装目录”设置位置，点击“安装”继续，或点击“取消”退出。" />
+  <String Id="InstallMessageOptions" Value="安装程序将在计算机上安装 [WixBundleName]。点击“浏览”设置位置，点击“安装”继续，或点击“取消”退出。" />
   <String Id="InstallVersion" Value="版本 [WixBundleVersion]" />
   <String Id="ConfirmCancelMessage" Value="确定要取消吗？" />
   <String Id="ExecuteUpgradeRelatedBundleMessage" Value="以前的版本" />

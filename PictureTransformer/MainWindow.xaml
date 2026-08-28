@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" Title="PictureTransformer" Width="1200" Height="820"
         MinWidth="1100" MinHeight="820" WindowStartupLocation="CenterScreen"
+        Icon="Assets/png.png"
         Background="#F6F8FC" FontFamily="Microsoft YaHei UI">
     <Window.Resources>
         <SolidColorBrush x:Key="PrimaryBrush" Color="#604FF2" />
@@ -84,9 +85,7 @@
         <Grid.RowDefinitions><RowDefinition Height="76" /><RowDefinition Height="*" /></Grid.RowDefinitions>
         <Border Grid.Row="0" Height="76" Background="White" HorizontalAlignment="Stretch">
             <Grid Margin="28,0"><StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                <Border Width="36" Height="36" Background="{StaticResource PrimaryBrush}" CornerRadius="10">
-                    <TextBlock Text="P" Foreground="White" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                </Border>
+                <Image Width="36" Height="36" Source="Assets/png.png" Stretch="Uniform" />
                 <StackPanel Margin="12,0,0,0" VerticalAlignment="Center">
                     <TextBlock Text="PictureTransformer" Foreground="{StaticResource TextBrush}" FontSize="17" FontWeight="Bold" />
                     <TextBlock Text="IMAGE WORKSPACE" Foreground="#8990A0" FontSize="9" FontWeight="SemiBold" />

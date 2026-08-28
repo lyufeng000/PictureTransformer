@@ -6,10 +6,12 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <UseWPF>true</UseWPF>
+        <ApplicationIcon>..\png.ico</ApplicationIcon>
     </PropertyGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\PictureTransformer.Core\PictureTransformer.Core.csproj" />
+        <Resource Include="..\png.png" Link="Assets\png.png" />
     </ItemGroup>
 
 </Project>

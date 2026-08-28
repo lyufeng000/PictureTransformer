@@ -4,6 +4,7 @@
         Title="PictureTransformer 更新"
         Width="660" Height="560" MinWidth="560" MinHeight="460"
         WindowStartupLocation="CenterOwner" ShowInTaskbar="False"
+        Icon="Assets/png.png"
         Background="#F6F8FC" FontFamily="Microsoft YaHei UI">
     <Window.Resources>
         <Style x:Key="UpdateButtonStyle" TargetType="Button">

@@ -3,7 +3,7 @@
   <Package
       Name="PictureTransformer"
       Manufacturer="PictureTransformer"
-      Version="1.0.5"
+      Version="1.0.6"
       UpgradeCode="AC370DB0-50B7-4729-BDAD-108301E523BF"
       Scope="perMachine"
       InstallerVersion="500"
@@ -12,6 +12,8 @@
     <SummaryInformation Description="PictureTransformer 图片格式转换工具" />
     <MajorUpgrade DowngradeErrorMessage="已安装更新版本的 PictureTransformer。" />
     <MediaTemplate EmbedCab="yes" CompressionLevel="high" />
+    <Icon Id="ProductIcon" SourceFile="..\..\png.ico" />
+    <Property Id="ARPPRODUCTICON" Value="ProductIcon" />
 
     <StandardDirectory Id="ProgramFiles64Folder">
       <Directory Id="INSTALLFOLDER" Name="PictureTransformer" />
