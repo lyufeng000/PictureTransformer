@@ -25,11 +25,12 @@
             <Label X="20" Y="90" Width="-20" Height="30" FontId="2" DisablePrefix="yes">#(loc.InstallHeader)</Label>
             <Label X="20" Y="125" Width="-20" Height="42" FontId="3" DisablePrefix="yes">#(loc.InstallMessageOptions)</Label>
             <Label X="20" Y="178" Width="-20" Height="17" FontId="3" DisablePrefix="yes">#(loc.InstallLocationLabel)</Label>
-            <Editbox Name="InstallFolder" X="20" Y="200" Width="-115" Height="24" TabStop="yes" FontId="3" FileSystemAutoComplete="yes" />
+            <Editbox Name="InstallParentFolder" X="20" Y="200" Width="-115" Height="24" TabStop="yes" FontId="3" FileSystemAutoComplete="yes" />
             <Button Name="BrowseButton" X="-20" Y="200" Width="70" Height="24" TabStop="yes" FontId="3">
                 <Text>#(loc.OptionsBrowseButton)</Text>
-                <BrowseDirectoryAction VariableName="InstallFolder" />
+                <BrowseDirectoryAction VariableName="InstallParentFolder" />
             </Button>
+            <Checkbox Name="AddToPath" X="20" Y="234" Width="-20" Height="20" TabStop="yes" FontId="3">#(loc.AddToPathCheckbox)</Checkbox>
             <Button Name="InstallUpdateButton" X="20" Y="-20" Width="150" Height="23" TabStop="yes" FontId="0" EnableCondition="WixStdBAUpdateAvailable" HideWhenDisabled="yes">#(loc.UpdateButton)</Button>
             <Button Name="InstallButton" X="-170" Y="-20" Width="75" Height="23" TabStop="yes" FontId="0">#(loc.InstallInstallButton)</Button>
             <Button Name="InstallCancelButton" X="-90" Y="-20" Width="70" Height="23" TabStop="yes" FontId="0">
@@ -41,11 +42,12 @@
         <Page Name="Options">
             <Label X="20" Y="90" Width="-20" Height="30" FontId="2" DisablePrefix="yes">#(loc.OptionsHeader)</Label>
             <Label X="20" Y="125" Width="-20" Height="17" FontId="3" DisablePrefix="yes">#(loc.OptionsLocationLabel)</Label>
-            <Editbox Name="InstallFolder" X="20" Y="148" Width="-115" Height="24" TabStop="yes" FontId="3" FileSystemAutoComplete="yes" />
+            <Editbox Name="InstallParentFolder" X="20" Y="148" Width="-115" Height="24" TabStop="yes" FontId="3" FileSystemAutoComplete="yes" />
             <Button Name="OptionsBrowseButton" X="-20" Y="148" Width="70" Height="24" TabStop="yes" FontId="3">
                 <Text>#(loc.OptionsBrowseButton)</Text>
-                <BrowseDirectoryAction VariableName="InstallFolder" />
+                <BrowseDirectoryAction VariableName="InstallParentFolder" />
             </Button>
+            <Checkbox Name="AddToPath" X="20" Y="184" Width="-20" Height="20" TabStop="yes" FontId="3">#(loc.AddToPathCheckbox)</Checkbox>
             <Button Name="OptionsOkButton" X="-170" Y="-20" Width="75" Height="23" TabStop="yes" FontId="0">
                 <Text>#(loc.OptionsOkButton)</Text>
                 <ChangePageAction Page="Install" />

@@ -4,14 +4,19 @@
   <Bundle
       Name="PictureTransformer"
       Manufacturer="PictureTransformer"
-      Version="1.0.7"
+      Version="1.0.8"
       IconSourceFile="..\..\png.ico"
       UpgradeCode="14A321DB-BE35-445C-8CC3-F5851515013C">
 
     <Variable
-        Name="InstallFolder"
+        Name="InstallParentFolder"
         Type="formatted"
-        Value="[ProgramFiles64Folder]PictureTransformer"
+        Value="[ProgramFiles64Folder]"
+        bal:Overridable="yes" />
+    <Variable
+        Name="AddToPath"
+        Type="numeric"
+        Value="1"
         bal:Overridable="yes" />
 
     <BootstrapperApplication>
@@ -30,7 +35,8 @@
           SourceFile="$(var.PictureTransformer.Package.TargetPath)"
           Vital="yes"
           Visible="no">
-        <MsiProperty Name="INSTALLFOLDER" Value="[InstallFolder]" />
+        <MsiProperty Name="INSTALLFOLDER" Value="[InstallParentFolder]\PictureTransformer" />
+        <MsiProperty Name="ADDTOPATH" Value="[AddToPath]" />
       </MsiPackage>
     </Chain>
   </Bundle>

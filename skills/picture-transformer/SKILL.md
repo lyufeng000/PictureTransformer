@@ -1,6 +1,6 @@
 ---
 name: picture-transformer
-description: 使用已安装的 PictureTransformer 1.0.7 在 Windows 本地转换单张、多张或目录中的图片，并设置输出格式、精确输出文件、覆盖规则和压缩率。适用于用户要求使用 PictureTransformer 处理本地图片格式转换；不用于图片内容编辑或输出 HEIC/HEIF。
+description: 使用已安装的 PictureTransformer 1.0.8 在 Windows 本地转换单张、多张或目录中的图片，并设置输出格式、精确输出文件、覆盖规则和压缩率。适用于用户要求使用 PictureTransformer 处理本地图片格式转换；不用于图片内容编辑或输出 HEIC/HEIF。
 ---
 
 # PictureTransformer
@@ -11,7 +11,7 @@ description: 使用已安装的 PictureTransformer 1.0.7 在 Windows 本地转�
 
 1. 从用户请求中确定输入文件或目录、输出格式、输出目录或完整输出文件、压缩率和覆盖规则。没有指定输出格式时使用 PNG；没有指定输出位置时保留软件默认行为，输出到每个源文件旁边；没有指定压缩率时不压缩。
 2. 输入路径不明确或用户没有提供本地文件时，先询问路径。不要猜测文件位置。
-3. 使用 `Get-Command pictureTransformer` 确认命令可用。若 PATH 中不存在，再检查默认安装位置 `C:\Program Files\PictureTransformer\pictureTransformer.exe`。两处都找不到时，说明需要安装 PictureTransformer 1.0.7 或提供可执行文件路径；不要自行下载安装。
+3. 使用 `Get-Command pictureTransformer` 确认命令可用。若 PATH 中不存在，再检查默认安装位置 `C:\Program Files\PictureTransformer\bin\pictureTransformer.exe`。两处都找不到时，说明需要安装 PictureTransformer 1.0.8 或提供可执行文件路径；不要自行下载安装。
 4. 每个文件或目录分别使用一个 `-s` 参数；路径始终加引号。多个输入共享目录时使用 `-d`；仅当单个输入需要精确文件名时使用 `-o`。`-d` 与 `-o` 不能同时使用。
 5. 只有 JPG、WebP、AVIF 和 JPEG 2000 支持非零压缩率。其他输出格式必须省略 `-c` 或使用 `-c 0`。
 6. 默认不要添加 `--overwrite`；只有用户明确要求覆盖或替换已有输出时才使用。未覆盖时，批量输出会自动添加编号，精确输出路径已存在则会安全失败。

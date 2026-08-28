@@ -3,7 +3,7 @@
   <Package
       Name="PictureTransformer"
       Manufacturer="PictureTransformer"
-      Version="1.0.7"
+      Version="1.0.8"
       UpgradeCode="AC370DB0-50B7-4729-BDAD-108301E523BF"
       Scope="perMachine"
       InstallerVersion="500"
@@ -12,8 +12,9 @@
     <SummaryInformation Description="PictureTransformer 图片格式转换工具" />
     <MajorUpgrade DowngradeErrorMessage="已安装更新版本的 PictureTransformer。" />
     <MediaTemplate EmbedCab="yes" CompressionLevel="high" />
-    <Icon Id="ProductIcon" SourceFile="..\..\png.ico" />
-    <Property Id="ARPPRODUCTICON" Value="ProductIcon" />
+    <Icon Id="ProductIcon.exe" SourceFile="..\..\png.ico" />
+    <Property Id="ARPPRODUCTICON" Value="ProductIcon.exe" />
+    <Property Id="ADDTOPATH" Value="1" Secure="yes" />
 
     <StandardDirectory Id="ProgramFiles64Folder">
       <Directory Id="INSTALLFOLDER" Name="PictureTransformer" />
@@ -26,51 +27,61 @@
     <StandardDirectory Id="DesktopFolder" />
 
     <Feature Id="MainFeature" Title="PictureTransformer" Level="1">
-      <Files Include="$(var.PublishDir)\*.*" Directory="INSTALLFOLDER">
-        <Exclude Files="$(var.PublishDir)\**\*.pdb" />
-      </Files>
-      <Files Include="$(var.PublishDir)\app\*.*" Directory="ApplicationFolder">
+      <Files Include="$(var.PublishDir)\app\*.*" Directory="INSTALLFOLDER">
         <Exclude Files="$(var.PublishDir)\app\PictureTransformer.exe" />
         <Exclude Files="$(var.PublishDir)\app\*.pdb" />
       </Files>
+      <Files Include="$(var.PublishDir)\*.*" Directory="CliFolder">
+        <Exclude Files="$(var.PublishDir)\*.pdb" />
+      </Files>
       <ComponentRef Id="MainExecutableComponent" />
       <ComponentRef Id="CliPathComponent" />
+      <ComponentRef Id="InstallRegistryComponent" />
     </Feature>
 
     <DirectoryRef Id="INSTALLFOLDER">
-      <Directory Id="ApplicationFolder" Name="app">
-        <Component Id="MainExecutableComponent" Guid="A88146BF-E68C-4CF3-BF47-2EC399A47DA6">
-          <File
-              Id="MainExecutable"
-              Source="$(var.PublishDir)\app\PictureTransformer.exe"
-              KeyPath="yes">
-            <Shortcut
-                Id="StartMenuShortcut"
-                Directory="ApplicationProgramsFolder"
-                Name="PictureTransformer"
-                Description="图片格式转换工具"
-                WorkingDirectory="INSTALLFOLDER"
-                Advertise="yes" />
-            <Shortcut
-                Id="DesktopShortcut"
-                Directory="DesktopFolder"
-                Name="PictureTransformer"
-                Description="图片格式转换工具"
-                WorkingDirectory="INSTALLFOLDER"
-                Advertise="yes" />
-          </File>
-          <RemoveFolder
-              Id="RemoveApplicationProgramsFolder"
+      <Directory Id="CliFolder" Name="bin" />
+      <Component Id="MainExecutableComponent" Guid="A88146BF-E68C-4CF3-BF47-2EC399A47DA6">
+        <File
+            Id="MainExecutable"
+            Source="$(var.PublishDir)\app\PictureTransformer.exe"
+            KeyPath="yes">
+          <Shortcut
+              Id="StartMenuShortcut"
               Directory="ApplicationProgramsFolder"
-              On="uninstall" />
-        </Component>
-      </Directory>
+              Name="PictureTransformer"
+              Description="图片格式转换工具"
+              WorkingDirectory="INSTALLFOLDER"
+              Icon="ProductIcon.exe"
+              IconIndex="0"
+              Advertise="yes" />
+          <Shortcut
+              Id="DesktopShortcut"
+              Directory="DesktopFolder"
+              Name="PictureTransformer"
+              Description="图片格式转换工具"
+              WorkingDirectory="INSTALLFOLDER"
+              Icon="ProductIcon.exe"
+              IconIndex="0"
+              Advertise="yes" />
+        </File>
+        <RemoveFolder
+            Id="RemoveApplicationProgramsFolder"
+            Directory="ApplicationProgramsFolder"
+            On="uninstall" />
+      </Component>
+    </DirectoryRef>
 
-      <Component Id="CliPathComponent" Guid="B46CA5A3-4324-46DC-8D75-363045B19713">
+    <DirectoryRef Id="CliFolder">
+      <Component
+          Id="CliPathComponent"
+          Guid="F5271ABA-3EE4-47D0-9097-63F91B27D49C"
+          Condition="ADDTOPATH = 1"
+          Transitive="yes">
         <Environment
             Id="AddCliToSystemPath"
             Name="PATH"
-            Value="[INSTALLFOLDER]"
+            Value="[CliFolder]"
             Part="last"
             Action="set"
             Permanent="no"
@@ -78,10 +89,28 @@
         <RegistryValue
             Root="HKLM"
             Key="Software\PictureTransformer"
+            Name="PathRegistered"
+            Type="integer"
+            Value="1"
+            KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="InstallRegistryComponent" Guid="92FBF583-1CE8-45DE-8B85-A31394FCE241">
+        <RegistryValue
+            Root="HKLM"
+            Key="Software\PictureTransformer"
             Name="InstallPath"
             Type="string"
             Value="[INSTALLFOLDER]"
             KeyPath="yes" />
+        <RegistryValue
+            Root="HKLM"
+            Key="Software\PictureTransformer"
+            Name="CliPath"
+            Type="string"
+            Value="[CliFolder]" />
       </Component>
     </DirectoryRef>
   </Package>
